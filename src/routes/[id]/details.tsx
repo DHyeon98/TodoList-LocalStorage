@@ -1,7 +1,7 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { DataType } from "../../App";
 
-export default function Details() {
+export default function DetailsPage() {
   const { state } = useLocation();
   const navigate = useNavigate();
 
@@ -27,7 +27,10 @@ export default function Details() {
         <h2>{state[0].title}</h2>
         <p>{state[0].description}</p>
       </div>
-      <button onClick={handleDelete}>삭제</button>
+      <div>
+        <Link to={`/${state[0].id}/modify`}>수정하기</Link>
+        <button onClick={handleDelete}>삭제하기</button>
+      </div>
     </main>
   );
 }
